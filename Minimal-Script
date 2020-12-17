@@ -1,0 +1,45 @@
+#!/bin/bash
+
+### Author: David Caíque
+### Version: 1.0
+### Description: Minimal Automation Script
+
+
+sudo apt -y update      && \
+sduo apt -y upgrade     && \
+sudo apt -y autoremove  && \
+
+
+sudo apt -y install tree       && \
+sudo apt -y install micro      && \
+sudo apt -y install git        && \
+sudo apt -y install hub        && \
+sudo apt -y install docker.io  && \
+
+
+wget -b -tries=100 -P ~/Imagens https://davidlacc.github.io/images-container/wallpaper.jpg
+gsettings set org.gnome.desktop.background picture-uri file:////home/$USER/Imagens/wallpaper.jpg
+
+
+hub clone EliverLara/Nordic                                    && \
+sudo mv Nordic /usr/share/themes                               && \
+gsettings set org.gnome.desktop.interface gtk-theme 'Nordic'   && \
+gsettings set org.gnome.desktop.wm.preferences theme 'Nordic'  && \
+
+
+hub clone zayronxio/Zafiro-icons                                     && \
+sudo mv Zafiro-icons /usr/share/icons                                && \
+gsettings set org.gnome.desktop.interface icon-theme 'Zafiro-icons'
+
+
+mkdir ~/.-_-_DEVELOPER-SPACE_-_-.  ;  cd ~/.-_-_DEVELOPER-SPACE_-_-.
+touch .learn-git .learn-hub .learn-docker
+echo '''
+>>  hub.github.com
+>>  freecodecamp.org
+>>  learndocker.online
+>>  learngitbranching.js.org
+''' >> where-to-learn
+mkdir StudySpace WorkSpace
+cd StudySpace    ;  mkdir '1-HTML' '2-CSS' '3-JS' '4-JQUERY' '5-FIREBASE'
+cd ../WorkSpace  ;  mkdir 'GoNotesML' 'GoLinksML'
